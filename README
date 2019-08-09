@@ -1,0 +1,31 @@
+README
+=====
+Please read LICENSE before you use this software.
+
+This is a program that connects to a VMware vCenter instance having a
+vSAN/SDDC Cluster, and runs performance diagnostics to evaluate performance
+issues that may have happened in a specified duration of time. By default, the
+duration is the last 1 hour, but the duration can be changed using config
+options.
+
+These programs are released under the conditions Apache License, Version 2.0.
+You may obtain a copy of the License in the file LICENSE.txt or at
+http://www.apache.org/licenses/LICENSE-2.0
+
+REQUIREMENTS:
+============
+To use this program, you need the following:
+1. Credentials to your vCenter, and the name of the cluster you are trying to
+investigate
+2. pyVmomi library. To install, please use pip install --upgrade pyvmomi
+3. vsanmgmtObjects.py in your PYTHONPATH. You can get one from the following path in your vCenter
+(login to vCenter via ssh): /usr/lib/vmware/site-packages/, alternatively, you
+can also download vSAN SDK from myVMware and copy over vsanmgmtObjects.py
+
+
+EXAMPLES:
+========
+Here is an example use case:
+python ./diagnose.py -u "Administrator@vsphere.local" -p "Admin123" -c "af.9705" -i "10.92.34.123"
+
+result.txt contains a sample result.
